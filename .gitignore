@@ -1,0 +1,12 @@
+# Ignore local database and instance folder
+instance/
+*.db
+
+# Bytecode / cache files
+__pycache__/
+*.pyc
+
+# OS or IDE clutter
+.DS_Store
+.vscode/
+.env
