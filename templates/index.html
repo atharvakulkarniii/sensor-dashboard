@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Real-Time Sensor Dashboard</h1>
+    <div class="dashboard">
+        <div class="tile" id="readingTile" onclick="showModal('readingModal')">
+            <div class="kpi-value" id="readingValue">--</div>
+            <div class="kpi-label" id="readingTime">--</div>
+            <div class="kpi-label">Current Sensor Reading (PPM)</div>
+        </div>
+        <div class="tile" id="alertCountTile" onclick="showModal('alertModal')">
+            <div class="kpi-value" id="alertCount">--</div>
+            <div class="kpi-label">Number of Alerts</div>
+        </div>
+        <div class="tile" id="alertTile">ACTIVE</div>
+    </div>
+    <div class="charts">
+        <div class="chart-container"><canvas id="readingChart"></canvas></div>
+        <div class="chart-container"><canvas id="alertChart"></canvas></div>
+    </div>
+    <div id="readingModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('readingModal')" class="close">&times;</span>
+            <h2>7-Day Sensor Reading History</h2>
+            <canvas id="readingHistoryChart"></canvas>
+        </div>
+    </div>
+    <div id="alertModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('alertModal')" class="close">&times;</span>
+            <h2>7-Day Alert Count</h2>
+            <canvas id="alertHistoryChart"></canvas>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
