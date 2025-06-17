@@ -1,0 +1,37 @@
+[
+    {
+        "date": "2025-06-10",
+        "average_reading": 163.04,
+        "alert_count": 3
+    },
+    {
+        "date": "2025-06-11",
+        "average_reading": 154.46,
+        "alert_count": 5
+    },
+    {
+        "date": "2025-06-12",
+        "average_reading": 157.29,
+        "alert_count": 2
+    },
+    {
+        "date": "2025-06-13",
+        "average_reading": 153.67,
+        "alert_count": 1
+    },
+    {
+        "date": "2025-06-14",
+        "average_reading": 155.71,
+        "alert_count": 0
+    },
+    {
+        "date": "2025-06-15",
+        "average_reading": 146.08,
+        "alert_count": 2
+    },
+    {
+        "date": "2025-06-16",
+        "average_reading": 152.54,
+        "alert_count": 3
+    }
+]
