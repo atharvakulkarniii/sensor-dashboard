@@ -3,18 +3,21 @@ import random
 import time
 from datetime import datetime, timezone
 
-url = "https://sensor-dashboard-production.up.railway.app/"
+URL = "https://sensor-dashboard.up.railway.app/receive"  # Replace with your actual URL
 
-while True:
-    value = round(random.uniform(80, 250), 2)
-    payload = {
+def generate_sensor_data():
+    return {
         "location": "area1",
-        "value": value,
+        "value": round(random.uniform(80, 250), 2),
         "timestamp": datetime.now(timezone.utc).isoformat()
     }
+
+while True:
+    data = generate_sensor_data()
     try:
-        r = requests.post(url, json=payload)
-        print("Sent:", payload, "Status:", r.status_code)
+        response = requests.post(URL, json=data)
+        print(f"Sent: {data} | Status: {response.status_code}")
     except Exception as e:
-        print("Error:", e)
+        print(f"Failed to send: {e}")
+    
     time.sleep(5)
