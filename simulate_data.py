@@ -3,7 +3,7 @@ import random
 import time
 from datetime import datetime, timezone
 
-url = "http://127.0.0.1:5000/receive"
+url = "https://sensor-dashboard-production.up.railway.app/"
 
 while True:
     value = round(random.uniform(80, 250), 2)
