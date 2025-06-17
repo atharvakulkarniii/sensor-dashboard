@@ -3,7 +3,8 @@ import random
 import time
 from datetime import datetime, timezone
 
-URL = "https://sensor-dashboard.up.railway.app/receive"  # Replace with your actual URL
+# 🔁 REPLACE this with your actual Railway URL if needed
+URL = "https://sensor-dashboard.up.railway.app/receive"
 
 def generate_sensor_data():
     return {
@@ -16,8 +17,11 @@ while True:
     data = generate_sensor_data()
     try:
         response = requests.post(URL, json=data)
-        print(f"Sent: {data} | Status: {response.status_code}")
+        if response.status_code == 200:
+            print(f"[✔] Sent: {data}")
+        else:
+            print(f"[✘] Failed to send | Status: {response.status_code} | Data: {data}")
     except Exception as e:
-        print(f"Failed to send: {e}")
+        print(f"[ERROR] Exception occurred: {e}")
     
-    time.sleep(5)
+    time.sleep(5)  # Wait 5 seconds before sending the next reading
